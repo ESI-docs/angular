@@ -5,9 +5,20 @@
 
 
 The template expression language employs a subset of JavaScript syntax supplemented with a few special operators
-for specific scenarios. The next sections cover two of these operators: _pipe_ and _safe navigation operator_.
+for specific scenarios. This page covers three of these operators: _pipe_, _safe navigation operator_, and the non-null assertion assertion operator.
 
-### The pipe operator ( `|` )
+
+## Prerequisites
+
+* [Interpolation](guide/interpolation).
+* [Template Statements](guide/template-statements).
+* [Binding syntax](guide/binding-syntax).
+* [Property Binding](guide/property-binding).
+
+
+## The pipe operator ( `|` )
+
+<!-- KW--There is another more in-depth Pipes doc. Maybe we don't need this. -->
 
 The result of an expression might require some transformation before you're ready to use it in a binding.
 For example, you might display a number as a currency, force text to uppercase, or filter a list and sort it.
@@ -36,7 +47,7 @@ The `json` pipe is particularly helpful for debugging bindings:
 <code-example path="template-syntax/src/app/app.component.html" linenums="false" title="src/app/app.component.html (pipes-json)" region="pipes-json">
 </code-example>
 
-The generated output would look something like this
+The generated output would look something like this:
 
 <code-example language="json">
   { "id": 0, "name": "Hercules", "emotion": "happy",
@@ -48,7 +59,7 @@ The generated output would look something like this
 <hr/>
 <!-- KW--Check this title syntax below to make sure it's consistently used throughout -->
 
-### The safe navigation operator, `?.`, and null property paths
+## The safe navigation operator, `?.`, and null property paths
 
 The Angular **safe navigation operator, `?.`,** is a fluent and convenient way to
 guard against null and undefined values in property paths.
@@ -120,17 +131,14 @@ The display is blank, but the app keeps rolling without errors.
 It works perfectly with long property paths such as `a?.b?.c?.d`.
 
 
-<hr/>
+## The non-null assertion operator (`!`)
 
-### The non-null assertion operator (`!`)
+As of Typescript 2.0, you can enforce [strict null checking](http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html "Strict null checking in TypeScript") with the `--strictNullChecks` flag. TypeScript then ensures that no variable is unintentionally `null` or `undefined`.
 
-As of Typescript 2.0, you can enforce [strict null checking](http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html "Strict null checking in TypeScript") with the `--strictNullChecks` flag. TypeScript then ensures that no variable is _unintentionally_ null or undefined.
-
-In this mode, typed variables disallow null and undefined by default. The type checker throws an error if you leave a variable unassigned or try to assign null or undefined to a variable whose type disallows null and undefined.
+In this mode, typed variables disallow `null` and `undefined` by default. The type checker throws an error if you leave a variable unassigned or try to assign null or undefined to a variable whose type disallows `null` and `undefined`.
 
 The type checker also throws an error if it can't determine whether 
-a variable will be null or undefined at runtime.
-Though you may know that can't happen, the type checker doesn't know.
+a variable will be `null` or `undefined` at runtime.
 You tell the type checker that it can't happen by applying the post-fix
 [_non-null assertion operator (!)_](http://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator "Non-null assertion operator").
 
@@ -154,27 +162,17 @@ it prevents TypeScript from reporting that `item.name` might be null or undefine
 
 Unlike the [_safe navigation operator_](guide/template-syntax#safe-navigation-operator "Safe naviation operator (?.)"),
 the **non-null assertion operator** does not guard against null or undefined.
-Rather it tells the TypeScript type checker to suspend strict null checks for a specific property expression.
+Rather, it tells the TypeScript type checker to suspend strict null checks for a specific property expression.
 
 You'll need this template operator when you turn on strict null checks. It's optional otherwise.
 
 <hr/>
 
-## Summary
-You've completed this survey of template syntax.
-Now it's time to put that knowledge to work on your own components and directives.
 
+<hr />
 
+## More information
 
-## Extras
+You may also like:
 
-The Angular application manages what the user sees and can do, through the interaction of a
-component class instance, or just component, and its user-facing template.
-
-You may be familiar with the component/template duality from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM).
-In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
-
-
-Many code snippets illustrate the points and concepts, all of them available
-in the <live-example title="Template Syntax Live Code"></live-example>.
-
+* [Placeholder](guide/) for _______.

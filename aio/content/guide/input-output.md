@@ -367,6 +367,15 @@ the directive property name on the *left* and the public alias on the *right*:
 </code-example>
 
 
+<hr />
+
+## More information
+
+You may also like:
+
+* [Placeholder](guide/) for _______.
+
+
 
 
 
