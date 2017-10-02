@@ -1,6 +1,12 @@
 {
-  "description": "Template Syntax Collection",
+  "description": "QuickStart",
   "basePath": "src/",
-  "files":["!**/*.d.ts",  "!**/*.js"],
-  "tags": ["template"]
+  "files": [
+    "app/app.component.ts",
+    "app/app.module.ts",
+    "main.ts",
+    "index.html"
+  ],
+  "open": "app/app.component.ts",
+  "tags": ["quickstart"]
 }

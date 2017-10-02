@@ -199,9 +199,7 @@ First, it translates the `*ngIf="..."` into a template _attribute_, `template="n
 <div template="ngIf item">{{item.name}}</div>
 ```
 
-<code-example path="structural-directives/src/app/app.component.html" linenums="false" title="src/app/app.component.html (ngif-template-attr)" region="ngif-template-attr">
 
-</code-example>
 
 
 Then it translates the template _attribute_ into an `<ng-template>` _element_, wrapped around the host element, like this:
