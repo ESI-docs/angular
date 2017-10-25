@@ -1,19 +1,39 @@
 # Architecture Overview
 
-Angular is a framework for building client applications in HTML and
+Angular is a platform and framework for building client applications in HTML and
 either JavaScript or a language like TypeScript that compiles to JavaScript.
+Angular is written in TypeScript, and includes a set of core and optional TypeScript libraries.
 
-The framework consists of several libraries, some of them core and some optional.
+An Angular application consists of a *component* hierarchy, where each component defines a class
+that contains application data and logic.
 
-You write Angular applications by composing HTML *templates* with Angularized markup,
-writing *component* classes to manage those templates, adding application logic in *services*,
-and boxing components and services in *modules*.
+* A view component includes an HTML *template* that defines a view to be displayed in a target environment.
 
-Then you launch the app by *bootstrapping* the _root module_.
-Angular takes over, presenting your application content in a browser and
-responding to user interactions according to the instructions you've provided.
+* For data or logic that is not associated with a specific view, or that you want to share across components,
+the component can be designated as a *service*. Services can be *injected* into client components.
 
-Of course, there is more to it than this.
+Components and services are collected into *modules*, which are like a manifest for an application. Every Angular application has an application root-module class. By convention, the class is called AppModule and resides in a file named app.module.ts. You launch your app by *bootstrapping* the root module.  
+
+Modules can import functionality from other modules, and allow their own functionality to be exported and used by other modules.
+Angular is itself an Angular application. Both core and optional functionality is implemented in Angular modules that you import.
+
+## Templates
+
+A template combines HTML with Angular markup that can modify the HTML elements before they are displayed.
+Template *directives* provide *two-way data binding* between your application data and the document object model (DOM).
+
+* Your application can respond to user input in the target environment by updating your application data.
+* Values that are computed from your application data using application logic can be interpolated into the HTML.   
+
+Before a view is displayed, Angular evaluates the directives in the template to modify the HTML elements and the DOM according to your program data and logic.
+
+## Routing
+
+The view defined by a component can contain a hierarchy of child views. Part of your program logic includes defining navigation routes among possible views.
+
+------------------
+
+
 You'll learn the details in the pages that follow. For now, focus on the big picture.
 
 <figure>
